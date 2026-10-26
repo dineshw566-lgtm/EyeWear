@@ -1,0 +1,227 @@
+.hero-slider {
+  position: relative;
+  overflow: hidden;
+  user-select: none;
+  min-height: 100svh;
+  height: 100svh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-video-wrapper {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.hero-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+/* Subtle cinematic overlay for excellent contrast while preserving vivid lighting */
+.hero-cinematic-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: radial-gradient(
+      ellipse at center,
+      rgba(0, 0, 0, 0.22) 0%,
+      rgba(0, 0, 0, 0.48) 100%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.28) 0%,
+      transparent 35%,
+      transparent 70%,
+      rgba(0, 0, 0, 0.38) 100%
+    );
+  pointer-events: none;
+}
+
+/* Centered Moon Shoe style Content Box */
+.hero-centered-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 1.5rem;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* Main Heading: VISION REDEFINED — Montserrat Bold 700 */
+.hero-main-heading {
+  font-family: var(--font-primary, "Montserrat", sans-serif);
+  font-weight: var(--weight-bold, 700);
+  font-size: clamp(3rem, 8.2vw, 6.5rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin: 0 0 1.25rem 0;
+  white-space: nowrap;
+  text-shadow: 0 4px 35px rgba(0, 0, 0, 0.8), 0 2px 8px rgba(0, 0, 0, 0.5);
+  animation: heroFadeUp 0.85s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation-delay: 0.15s;
+}
+
+/* Subtitle: Luxury eyewear. Timeless vision. — Montserrat Medium 500 */
+.hero-subtitle {
+  font-family: var(--font-primary, "Montserrat", sans-serif);
+  font-weight: var(--weight-medium, 500);
+  font-size: clamp(0.85rem, 1.15vw, 1.05rem);
+  line-height: 1.6;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.92);
+  margin: 0 0 2rem 0;
+  max-width: 38rem;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.8);
+  animation: heroFadeUp 0.85s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation-delay: 0.3s;
+}
+
+/* CTA Buttons Group */
+.hero-cta-group {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.2rem;
+  animation: heroFadeUp 0.85s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation-delay: 0.45s;
+}
+
+/* Base button styling — Montserrat SemiBold 600 */
+.hero-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 2.5rem;
+  border-radius: 9999px;
+  font-family: var(--font-primary, "Montserrat", sans-serif);
+  font-size: 0.88rem;
+  font-weight: var(--weight-semibold, 600);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.28s cubic-bezier(0.2, 0.8, 0.2, 1);
+  white-space: nowrap;
+}
+
+/* Explore Collection — Bright lime green (#DFFF45) */
+.hero-btn-primary {
+  background-color: #dfff45;
+  color: #111111;
+  border: 2px solid #dfff45;
+  box-shadow: 0 4px 20px rgba(223, 255, 69, 0.35);
+}
+
+.hero-btn-primary:hover {
+  background-color: #cdf042;
+  border-color: #cdf042;
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 8px 30px rgba(223, 255, 69, 0.5);
+}
+
+/* Buy Now — Transparent / Dark with crisp white border */
+.hero-btn-secondary {
+  background-color: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: #ffffff;
+  border: 2px solid rgba(255, 255, 255, 0.95);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.35);
+}
+
+.hero-btn-secondary:hover {
+  background-color: #ffffff;
+  color: #111111;
+  border-color: #ffffff;
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 8px 28px rgba(255, 255, 255, 0.35);
+}
+
+/* Keyframes for subtle entrance animation */
+@keyframes heroFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .hero-main-heading {
+    font-size: clamp(2rem, 7.5vw, 3.2rem);
+    white-space: normal;
+    letter-spacing: 0.02em;
+    line-height: 1.08;
+    margin-bottom: 1rem;
+  }
+
+  .hero-subtitle {
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    margin-bottom: 1.4rem;
+  }
+
+  .hero-cta-group {
+    gap: 0.75rem;
+    width: 100%;
+    max-width: 320px;
+  }
+
+  .hero-btn {
+    padding: 0.7rem 1.4rem;
+    font-size: 0.78rem;
+    flex: 1;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-main-heading {
+    /* Decreased by 20px from 45px (2.8rem) down to 25px (1.56rem) */
+    font-size: clamp(1.45rem, 6.8vw, 1.65rem);
+    line-height: 1.12;
+    margin-bottom: 0.75rem;
+  }
+
+  .hero-subtitle {
+    font-size: 0.65rem;
+    letter-spacing: 0.08em;
+    margin-bottom: 1.2rem;
+  }
+
+  .hero-cta-group {
+    flex-direction: column;
+    width: 100%;
+    max-width: 220px;
+    gap: 0.55rem;
+  }
+
+  .hero-btn {
+    width: 100%;
+    /* Decreased button height by ~20px (from ~52px down to ~32px) */
+    padding: 0.48rem 1rem;
+    font-size: 0.72rem;
+    letter-spacing: 0.05em;
+  }
+}
+

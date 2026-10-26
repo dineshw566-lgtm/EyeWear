@@ -1,0 +1,371 @@
+/* ==========================================================================
+   VIZHEN PLUS OPTICS — FEATURED COLLECTION
+   Exact Reference Matching:
+   - "FEATURED COLLECTION —" eyebrow with ochre accent line
+   - "Frames for real personalities." (with elegant italic serif "for")
+   - Right description with golden horizontal underline bar
+   - 3-Card Asymmetric Grid:
+     1. Left Tall Card (Optical Frames) with camel pill CTA: "EXPLORE FRAMES →"
+     2. Top Right Card (Women) with "EXPLORE WOMEN →"
+     3. Bottom Right Card (Men) with "EXPLORE MEN →"
+   ========================================================================== */
+
+.featured-collection-section {
+  width: 100%;
+  background: #ffffff;
+  padding: clamp(3.5rem, 6vw, 6rem) 0;
+  position: relative;
+}
+
+.featured-collection-container {
+  max-width: 1378px;
+  width: calc(100% - 32px);
+  margin: 0 auto;
+}
+
+/* ==========================================================================
+   HEADER ROW
+   ========================================================================== */
+.featured-collection-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-bottom: clamp(2rem, 3.5vw, 3rem);
+}
+
+.featured-header-left {
+  flex: 1;
+  max-width: 640px;
+}
+
+.featured-eyebrow-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.65rem;
+}
+
+.featured-eyebrow {
+  font-family: var(--font-primary);
+  font-size: 0.75rem;
+  font-weight: var(--weight-medium);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #a87932; /* Warm ochre gold */
+}
+
+.featured-eyebrow-line {
+  display: inline-block;
+  width: 38px;
+  height: 2px;
+  background: #c59b27;
+}
+
+.featured-main-title {
+  margin: 0;
+  font-family: var(--font-primary);
+  font-size: clamp(2.2rem, 3.6vw, 3.2rem);
+  font-weight: var(--weight-bold);
+  line-height: 1.2;
+  color: #111827;
+  letter-spacing: -0.025em;
+}
+
+.featured-title-italic {
+  font-family: var(--font-primary);
+  font-style: italic;
+  font-weight: var(--weight-bold);
+  color: #b48c36; /* Ochre accent on "for" */
+  padding: 0 0.15em;
+}
+
+.featured-header-right {
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding-bottom: 0.35rem;
+}
+
+.featured-description {
+  margin: 0;
+  font-family: var(--font-primary);
+  font-size: clamp(0.88rem, 1.05vw, 0.98rem);
+  font-weight: var(--weight-regular);
+  line-height: 1.7;
+  color: #555555;
+}
+
+.featured-desc-accent-bar {
+  width: 52px;
+  height: 2px;
+  background: #c59b27;
+  margin-top: 0.9rem;
+}
+
+/* ==========================================================================
+   3-CARD ASYMMETRIC GRID
+   ========================================================================== */
+.featured-collection-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  grid-template-rows: 300px 300px;
+  gap: 1.5rem;
+  width: 100%;
+}
+
+/* Base Card Styling */
+.featured-card {
+  position: relative;
+  border-radius: 0; /* Sharp architectural corners as requested */
+  overflow: hidden;
+  text-decoration: none;
+  display: block;
+  box-shadow: 0 10px 30px rgba(15, 23, 21, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.featured-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 42px rgba(15, 23, 21, 0.16);
+}
+
+/* 1. Tall Left Card */
+.featured-card-tall {
+  grid-column: 1;
+  grid-row: span 2;
+  height: 100%;
+}
+
+/* 2. Right Cards: Men (top) & Child (bottom) */
+.featured-card-men {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.featured-card-child {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+/* Image Wrap & Zoom */
+.featured-card-image-wrap {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background: #111827;
+}
+
+.featured-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Position adjustments for perfect framing */
+.featured-card-women .featured-card-img {
+  object-position: center 20%;
+}
+
+.featured-card-men .featured-card-img {
+  object-position: center 22%;
+}
+
+.featured-card-child .featured-card-img {
+  object-position: center 22%;
+}
+
+.featured-card:hover .featured-card-img {
+  transform: scale(1.045);
+}
+
+/* Dark Gradient Scrim — lightened at top for ultra-sharp portrait clarity */
+.featured-card-scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.04) 42%,
+    rgba(10, 16, 14, 0.65) 75%,
+    rgba(8, 12, 11, 0.92) 100%
+  );
+  pointer-events: none;
+}
+
+/* Card Content Overlay */
+.featured-card-content {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: clamp(1.4rem, 2.4vw, 2.4rem);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  color: #ffffff;
+}
+
+.featured-card-badge {
+  font-family: var(--font-primary);
+  font-size: 0.68rem;
+  font-weight: var(--weight-medium);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #e6cca8; /* Subtle warm champagne */
+  margin-bottom: 0.35rem;
+}
+
+.featured-card-title {
+  margin: 0 0 0.35rem;
+  font-family: var(--font-primary);
+  font-size: clamp(1.65rem, 2.2vw, 2.2rem);
+  font-weight: var(--weight-bold);
+  line-height: 1.2;
+  color: #ffffff;
+}
+
+.featured-card-tall .featured-card-title {
+  font-size: clamp(2rem, 2.8vw, 2.7rem);
+}
+
+.featured-card-sub {
+  margin: 0 0 1.25rem;
+  font-family: var(--font-primary);
+  font-size: clamp(0.82rem, 0.95vw, 0.9rem);
+  font-weight: var(--weight-regular);
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.6;
+  max-width: 320px;
+}
+
+/* Camel Rounded Pill Button (Optical Frames) */
+.featured-pill-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  background: #d4b285; /* Warm camel beige matching reference screenshot */
+  color: #171512;
+  padding: 0.7rem 1.45rem;
+  border-radius: 9999px;
+  font-family: var(--font-primary);
+  font-size: 0.75rem;
+  font-weight: var(--weight-semibold);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.featured-card:hover .featured-pill-btn {
+  background: #e2c299;
+  transform: translateY(-1px);
+}
+
+.featured-btn-arrow {
+  transition: transform 0.3s ease;
+}
+
+.featured-card:hover .featured-btn-arrow {
+  transform: translateX(3px);
+}
+
+/* Minimal Text Link with Arrow (Women & Men) */
+.featured-text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #ffffff;
+  font-family: var(--font-primary);
+  font-size: 0.75rem;
+  font-weight: var(--weight-semibold);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding-bottom: 3px;
+  border-bottom: 1.5px solid rgba(255, 255, 255, 0.65);
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.featured-card:hover .featured-text-link {
+  color: #f7ecd7;
+  border-color: #f7ecd7;
+}
+
+.featured-link-arrow {
+  transition: transform 0.3s ease;
+}
+
+.featured-card:hover .featured-link-arrow {
+  transform: translateX(3px);
+}
+
+/* ==========================================================================
+   RESPONSIVE LAYOUTS
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .featured-collection-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .featured-header-right {
+    max-width: 100%;
+  }
+
+  .featured-collection-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    gap: 1.25rem;
+  }
+
+  .featured-card-tall,
+  .featured-card-women {
+    grid-column: auto;
+    grid-row: auto;
+    height: 480px;
+  }
+
+  .featured-card-men,
+  .featured-card-child {
+    grid-column: auto;
+    grid-row: auto;
+    height: 320px;
+  }
+}
+
+@media (max-width: 640px) {
+  .featured-collection-section {
+    padding: 3rem 0;
+  }
+
+  .featured-collection-container {
+    width: calc(100% - 24px);
+  }
+
+  .featured-main-title {
+    font-size: 2rem;
+  }
+
+  .featured-card-tall,
+  .featured-card-women {
+    height: 420px;
+  }
+
+  .featured-card-men,
+  .featured-card-child {
+    height: 290px;
+  }
+
+  .featured-card-content {
+    padding: 1.25rem;
+  }
+}
+

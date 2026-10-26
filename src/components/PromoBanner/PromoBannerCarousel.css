@@ -1,0 +1,216 @@
+/* ==========================================================================
+   VIZHEN PLUS OPTICS — OFFICIAL PROMOTIONAL BANNERS CAROUSEL
+   Carousel with official creatives from public/banners/2nd banners/
+   ========================================================================== */
+
+.promo-banners-section {
+  position: relative;
+  width: 100%;
+  background: #ffffff;
+  padding-bottom: 3.5rem;
+  overflow: hidden;
+}
+
+/* ==========================================================================
+   PROMOTIONAL BANNER (CAROUSEL)
+   ========================================================================== */
+.promo-banner-second-container {
+  width: calc(100% - 32px);
+  max-width: 1328px;
+  margin: 2.5rem auto 0;
+  position: relative;
+}
+
+.promo-banner-second-viewport {
+  width: 100%;
+  aspect-ratio: 1328 / 211;
+  max-height: 211px;
+  min-height: 180px;
+  height: 211px;
+  border-radius: 0;
+  overflow: hidden;
+  box-shadow: 0 8px 30px rgba(23, 28, 28, 0.06);
+  border: 1px solid #e8e8e8;
+  background: #ffffff;
+  position: relative;
+}
+
+.promo-banner-track {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  transition: transform 600ms cubic-bezier(0.25, 1, 0.5, 1);
+  will-change: transform;
+}
+
+.promo-banner-slide {
+  flex: 0 0 100%;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  text-decoration: none;
+  overflow: hidden;
+  background: #ffffff;
+}
+
+.promo-banner-slide-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform 600ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.promo-banner-slide:hover .promo-banner-slide-img {
+  transform: scale(1.015);
+}
+
+/* Navigation Arrows */
+.promo-nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  color: #071A15;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+  transition: all 220ms ease;
+  backdrop-filter: blur(4px);
+  outline: none;
+}
+
+.promo-nav-btn:hover {
+  background: #ffffff;
+  transform: translateY(-50%) scale(1.08);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.22);
+}
+
+.promo-nav-btn.prev {
+  left: 14px;
+}
+
+.promo-nav-btn.next {
+  right: 14px;
+}
+
+/* Pagination Indicators */
+.promo-indicators {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.promo-indicator-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: none;
+  background-color: #cbd5e1;
+  padding: 0;
+  cursor: pointer;
+  transition: all 250ms ease;
+  outline: none;
+}
+
+.promo-indicator-dot.active {
+  width: 26px;
+  border-radius: 9999px;
+  background-color: var(--color-primary, #071A15);
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN
+   ========================================================================== */
+@media (max-width: 768px) {
+  .promo-banners-section {
+    padding-bottom: 2rem;
+  }
+
+  .promo-banner-second-container {
+    width: calc(100% - 24px);
+    margin: 1.25rem auto 0;
+  }
+
+  .promo-banner-second-viewport {
+    width: 100%;
+    height: auto;
+    min-height: unset;
+    max-height: none;
+    aspect-ratio: 2172 / 500;
+    border-radius: 12px;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    box-shadow: 0 4px 18px rgba(7, 26, 21, 0.06);
+    background: #ffffff;
+  }
+
+  .promo-banner-slide {
+    height: auto;
+    aspect-ratio: 2172 / 500;
+  }
+
+  .promo-banner-slide-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+  }
+
+  /* Hide intrusive floating arrows on mobile screen */
+  .promo-nav-btn {
+    display: none !important;
+  }
+
+  /* Mobile Pagination Indicators */
+  .promo-indicators {
+    margin-top: 12px;
+    gap: 6px;
+  }
+
+  .promo-indicator-dot {
+    width: 6px;
+    height: 6px;
+  }
+
+  .promo-indicator-dot.active {
+    width: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .promo-banner-second-container {
+    width: calc(100% - 20px);
+    margin-top: 1rem;
+  }
+
+  .promo-banner-second-viewport {
+    border-radius: 10px;
+    aspect-ratio: 2172 / 500;
+  }
+
+  .promo-banner-slide {
+    aspect-ratio: 2172 / 500;
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .promo-banner-track,
+  .promo-banner-top-img,
+  .promo-banner-slide-img {
+    transition: none !important;
+  }
+}

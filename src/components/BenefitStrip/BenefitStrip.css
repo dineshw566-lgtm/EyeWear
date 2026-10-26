@@ -1,0 +1,191 @@
+/* ==========================================================================
+   VIZHEN PLUS OPTICS — BENEFIT STRIP
+   Exact reference matching:
+   - "Signup & Unlock Exclusive Benefits" (amber accent)
+   - 4 benefits with clean modern icons
+   - Solid black pill "SIGN UP" button
+   ========================================================================== */
+
+.benefit-strip-section {
+  width: 100%;
+  background: #ffffff;
+  border-top: 1px solid #ebebeb;
+  border-bottom: 1px solid #ebebeb;
+  padding: 0.9rem 0;
+  position: relative;
+  z-index: 2;
+}
+
+.benefit-strip-container {
+  max-width: 1378px;
+  width: calc(100% - 32px);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+/* Left Title */
+.benefit-strip-heading {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+  white-space: nowrap;
+  font-family: var(--font-primary, "Montserrat", sans-serif);
+}
+
+.benefit-heading-plain {
+  font-size: 0.88rem;
+  font-weight: var(--weight-bold, 700);
+  color: #111827;
+  letter-spacing: -0.01em;
+}
+
+.benefit-heading-accent {
+  font-size: 0.88rem;
+  font-weight: var(--weight-bold, 700);
+  color: var(--color-logo-gold, #DCBC0F);
+  letter-spacing: -0.01em;
+}
+
+/* Benefits Row */
+.benefit-strip-items {
+  display: flex;
+  align-items: center;
+  gap: clamp(1.2rem, 2.5vw, 2.8rem);
+  flex: 1;
+  justify-content: center;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+  padding: 0.2rem 0;
+}
+
+.benefit-strip-items::-webkit-scrollbar {
+  display: none;
+}
+
+.benefit-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+  color: inherit;
+  flex-shrink: 0;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.benefit-item:hover {
+  transform: translateY(-1px);
+}
+
+.benefit-icon-box {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: #f8fafc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #1e293b;
+  flex-shrink: 0;
+  border: 1px solid #e2e8f0;
+}
+
+.benefit-icon {
+  width: 17px;
+  height: 17px;
+  color: #334155;
+}
+
+.benefit-text-box {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.25;
+}
+
+.benefit-title {
+  font-family: var(--font-primary, "Montserrat", sans-serif);
+  font-size: 0.8rem;
+  font-weight: var(--weight-semibold, 600);
+  color: #0f172a;
+  letter-spacing: -0.01em;
+}
+
+.benefit-subtitle {
+  font-family: var(--font-primary, "Montserrat", sans-serif);
+  font-size: 0.68rem;
+  font-weight: var(--weight-medium, 500);
+  color: #64748b;
+}
+
+/* Right Sign Up Button */
+.benefit-strip-cta {
+  flex-shrink: 0;
+}
+
+.benefit-signup-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-primary, #071A15);
+  color: #ffffff;
+  padding: 0.55rem 1.6rem;
+  border-radius: 9999px;
+  font-family: var(--font-primary, "Montserrat", sans-serif);
+  font-size: 0.75rem;
+  font-weight: var(--weight-semibold, 600);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 1px solid var(--color-primary, #071A15);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.benefit-signup-btn:hover {
+  background: var(--color-accent, #D7F84F);
+  color: var(--color-primary, #071A15);
+  border-color: var(--color-accent, #D7F84F);
+  transform: translateY(-1px);
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+  .benefit-strip-container {
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .benefit-strip-items {
+    width: 100%;
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 640px) {
+  .benefit-strip-section {
+    padding: 0.75rem 0;
+  }
+
+  .benefit-strip-container {
+    width: calc(100% - 24px);
+  }
+
+  .benefit-heading-plain,
+  .benefit-heading-accent {
+    font-size: 0.82rem;
+  }
+
+  .benefit-signup-btn {
+    padding: 0.45rem 1.25rem;
+    font-size: 0.7rem;
+  }
+
+  .benefit-strip-items {
+    gap: 1.25rem;
+  }
+}
+

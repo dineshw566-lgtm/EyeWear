@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  body { margin: 0; background: #0b0b0b; color: white; font-family: sans-serif; padding: 20px; }
+  #container { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .item { background: #1c1c1c; border-radius: 12px; overflow: hidden; padding: 12px; }
+  canvas { width: 100%; height: 420px; object-fit: cover; border-radius: 8px; background: #2a2a2a; }
+  h4 { margin: 0 0 6px 0; color: #d8f94f; font-size: 13px; }
+  p { font-size: 10px; color: #888; margin: 4px 0 0 0; word-break: break-all; }
+</style>
+</head>
+<body>
+<div id="container"></div>
+<script>
+const files = [
+  "AQMLzBLOUBYsmwhYn_D3_SDtLEymStWzuo3zuhwDwD9SLIvr9Hqr6tE6fUbyPfGMiSLDSu_1NVXNg4hlaW6W1CKXOgw-nHxIt-2JEQ4s1Q.mp4",
+  "AQO_bZcqquGWhdnFcKMt3nrsw0P8oytYS4-OMjGTs4IytKm1I_fr1hUbNTo-vpAMBkUaz2jjlEkqd6P3Z5C-nTCiBvxscGNVZ2qoa-1how.mp4",
+  "Minimalist, classic or Y2K 🕶️✨ Every frame carries a different mood._Which pair fits your vibe .mp4",
+  "Polaroid Eyewear. Style and protection.Find your favourites at your nearest Visual-Click opticia.mp4",
+  "The perfect fit starts with a pair of RITZ 1 S Shades from William Morris black label 😎 AD @wil.mp4",
+  "Translucent Havana reveals the metal soul of @webeyewearofficials WE0401.Styled on @giacomogior.mp4",
+  "Unboxing my new @tomford sunglasses!😎🕶️☀️🌞##unboxingreel #fypp #luxurylifestyle #luxurysungla.mp4",
+  "United colors of Benetton #Benettonfrmes#short #viralvideo #optical #india.mp4",
+  "✨ The new @tomford Eyewear 2026 collection has arrived.Bold lines, iconic details, and an elega.mp4"
+];
+const container = document.getElementById('container');
+let loadedCount = 0;
+
+files.forEach((f, i) => {
+  const d = document.createElement('div');
+  d.className = 'item';
+  d.innerHTML = `<h4>#${i}: ${f.substring(0, 30)}...</h4>`;
+  const canvas = document.createElement('canvas');
+  canvas.width = 360;
+  canvas.height = 640;
+  d.appendChild(canvas);
+  const p = document.createElement('p');
+  p.textContent = f;
+  d.appendChild(p);
+  container.appendChild(d);
+
+  const video = document.createElement('video');
+  video.src = "/home%20page%202nd%20section/" + encodeURIComponent(f);
+  video.muted = true;
+  video.preload = "auto";
+  video.crossOrigin = "anonymous";
+  
+  video.addEventListener('loadeddata', () => {
+    video.currentTime = Math.min(2.0, (video.duration || 4) / 2);
+  });
+  
+  video.addEventListener('seeked', () => {
+    const ctx = canvas.getContext('2d');
+    ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+    loadedCount++;
+    if (loadedCount === files.length) {
+      document.body.setAttribute('data-ready', 'true');
+    }
+  });
+  video.load();
+});
+</script>
+</body>
+</html>

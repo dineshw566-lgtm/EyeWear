@@ -1,0 +1,146 @@
+/* ==========================================================================
+   MODERN COLLECTION SECTION
+   Matches user reference screenshot:
+   - Full width layout covering the whole page
+   - Category tabs on left (Men, Women, Unisex, Kids)
+   - Dark "View All Collection" pill button on right
+   - 5-column product grid with 3 full rows (15 items)
+   - Uses modern Titan-inspired product card
+   ========================================================================== */
+
+.modern-collection-section {
+  width: 100%;
+  background: #f8fafc;
+  padding: 40px 0 64px;
+}
+
+.modern-collection-container {
+  width: 80%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+@media (max-width: 1200px) {
+  .modern-collection-container {
+    width: 88%;
+    padding: 0 12px;
+  }
+}
+
+@media (max-width: 768px) {
+  .modern-collection-container {
+    width: 100%;
+    padding: 0 16px;
+  }
+}
+
+/* ---- Top Bar: Tabs & View All Button ---- */
+.modern-collection-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid #eef2f6;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.modern-collection-tabs {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.modern-collection-tab {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-primary, "Montserrat", sans-serif);
+  font-size: 1.05rem;
+  font-weight: var(--weight-medium, 500);
+  color: #4b5563;
+  padding: 0 0 10px;
+  position: relative;
+  transition: color 0.2s ease;
+  outline: none;
+  white-space: nowrap;
+}
+
+.modern-collection-tab:hover {
+  color: #111827;
+}
+
+.modern-collection-tab.active {
+  color: var(--color-primary, #071A15);
+  font-weight: var(--weight-bold, 700);
+}
+
+.tab-active-indicator {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: var(--color-primary, #071A15);
+}
+
+.modern-collection-view-all-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-primary, #071A15);
+  color: #ffffff;
+  font-family: var(--font-primary, "Montserrat", sans-serif);
+  font-size: 0.82rem;
+  font-weight: var(--weight-semibold, 600);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 10px 22px;
+  border-radius: 9999px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.modern-collection-view-all-btn:hover {
+  background-color: #0d7b73;
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+/* ---- 5-Column Product Grid (Full Width, 3 Rows x 5 Columns = 15 Items) ---- */
+.modern-collection-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 16px;
+  width: 100%;
+}
+
+@media (max-width: 1400px) {
+  .modern-collection-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 1100px) {
+  .modern-collection-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .modern-collection-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+}
+
+@media (max-width: 440px) {
+  .modern-collection-grid {
+    grid-template-columns: 1fr;
+  }
+}

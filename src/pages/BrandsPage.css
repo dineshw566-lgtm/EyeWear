@@ -1,0 +1,340 @@
+/* ============================================================
+   BRANDS PAGE — ViZHən Plus Optics
+   Matches reference screenshot: light aqua-tinted background,
+   white rounded cards, authentic brand logos centered.
+   ============================================================ */
+
+/* ── Page wrapper ──────────────────────────────────────────── */
+.brands-page {
+  min-height: 100vh;
+  background: linear-gradient(160deg, #eaf6f9 0%, #f0f8fb 40%, #f5fbfd 100%);
+  padding: 5rem clamp(1.25rem, 5vw, 5rem) 6rem;
+}
+
+/* ── Header ────────────────────────────────────────────────── */
+.brands-page__header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.brands-page__eyebrow {
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #0d9488;
+  margin-bottom: 0.6rem;
+}
+
+.brands-page__title {
+  font-family: "Cinzel", serif;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 700;
+  color: #071a15;
+  margin: 0 0 0.75rem;
+  line-height: 1.1;
+}
+
+.brands-page__sub {
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.95rem;
+  color: #61706b;
+  max-width: 540px;
+  margin: 0 auto;
+  line-height: 1.65;
+}
+
+/* ── Controls row ──────────────────────────────────────────── */
+.brands-page__controls {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+
+/* Search pill */
+.brands-search {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border: 1.5px solid #d4eef5;
+  border-radius: 50px;
+  padding: 0 1rem;
+  gap: 0.5rem;
+  width: min(420px, 100%);
+  box-shadow: 0 2px 8px rgba(0, 120, 140, 0.07);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.brands-search:focus-within {
+  border-color: #0d9488;
+  box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.12);
+}
+
+.brands-search__icon {
+  color: #9db3b0;
+  flex-shrink: 0;
+}
+
+.brands-search__input {
+  flex: 1;
+  height: 44px;
+  border: none;
+  background: transparent;
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.9rem;
+  color: #111c17;
+  outline: none;
+}
+
+.brands-search__input::placeholder {
+  color: #aab9b5;
+}
+
+.brands-search__clear {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #9db3b0;
+  display: flex;
+  align-items: center;
+  padding: 2px;
+  border-radius: 50%;
+  transition: color 0.15s;
+}
+.brands-search__clear:hover {
+  color: #071a15;
+}
+
+/* Count pill */
+.brands-page__count {
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #7a9a95;
+  white-space: nowrap;
+}
+
+/* ── A–Z navigation ────────────────────────────────────────── */
+.brands-az {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  justify-content: center;
+  margin-bottom: 2.5rem;
+}
+
+.brands-az__btn {
+  height: 32px;
+  min-width: 32px;
+  padding: 0 0.5rem;
+  border: 1.5px solid #d4eef5;
+  border-radius: 8px;
+  background: #fff;
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: #61706b;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.brands-az__btn:hover {
+  border-color: #0d9488;
+  color: #0d9488;
+  background: #f0fcfb;
+}
+
+.brands-az__btn.active {
+  background: #0d9488;
+  border-color: #0d9488;
+  color: #fff;
+}
+
+/* ── Brand grid ────────────────────────────────────────────── */
+.brands-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 14px;
+  max-width: 1360px;
+  margin: 0 auto;
+}
+
+/* ── Brand card ────────────────────────────────────────────── */
+.brand-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  border: 1.5px solid #e4f2f5;
+  border-radius: 18px;
+  height: 80px;
+  padding: 10px 14px;
+  cursor: pointer;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+  box-shadow: 0 2px 10px rgba(0, 100, 120, 0.06);
+  overflow: hidden;
+}
+
+.brand-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0, 100, 120, 0.13);
+  border-color: #b8dfe8;
+}
+
+.brand-card:active {
+  transform: translateY(-1px);
+}
+
+/* Logo image — base */
+.brand-card__logo {
+  max-width: 100%;
+  max-height: 38px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  transition: opacity 0.18s;
+}
+
+/* White logos → invert to dark on white card */
+.brand-card__logo--white {
+  filter: brightness(0) saturate(100%);
+  opacity: 0.72;
+}
+
+/* Dark / coloured logos → show as-is */
+.brand-card__logo--dark {
+  opacity: 0.8;
+}
+
+.brand-card:hover .brand-card__logo--white {
+  opacity: 1;
+}
+
+.brand-card:hover .brand-card__logo--dark {
+  opacity: 1;
+}
+
+/* Text fallback for brands without logos */
+.brand-card__text {
+  font-family: "Montserrat", sans-serif;
+  font-size: clamp(0.62rem, 1vw, 0.82rem);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: #2a3c38;
+  text-align: center;
+  line-height: 1.25;
+  text-transform: uppercase;
+  word-break: break-word;
+  hyphens: auto;
+}
+
+.brand-card:hover .brand-card__text {
+  color: #0d9488;
+}
+
+/* ── Empty state ───────────────────────────────────────────── */
+.brands-empty {
+  text-align: center;
+  padding: 5rem 2rem;
+}
+
+.brands-empty__icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.brands-empty h3 {
+  font-family: "Cinzel", serif;
+  font-size: 1.5rem;
+  color: #071a15;
+  margin-bottom: 0.5rem;
+}
+
+.brands-empty p {
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.93rem;
+  color: #7a9a95;
+  margin-bottom: 1.5rem;
+}
+
+.brands-empty__reset {
+  background: #0d9488;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.7rem 1.8rem;
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.brands-empty__reset:hover {
+  background: #0b8278;
+}
+
+/* ── Responsive ────────────────────────────────────────────── */
+@media (max-width: 1280px) {
+  .brands-grid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+@media (max-width: 1024px) {
+  .brands-grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .brands-page {
+    padding: 4rem 1.25rem 5rem;
+  }
+  .brands-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+  }
+  .brand-card {
+    height: 70px;
+    border-radius: 14px;
+    padding: 8px 10px;
+  }
+  .brand-card__logo {
+    max-height: 32px;
+  }
+}
+
+@media (max-width: 520px) {
+  .brands-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+  }
+  .brand-card {
+    height: 64px;
+    border-radius: 12px;
+    padding: 6px 8px;
+  }
+  .brand-card__logo {
+    max-height: 28px;
+  }
+  .brands-az__btn {
+    height: 28px;
+    min-width: 28px;
+    font-size: 0.7rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .brands-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

@@ -1,0 +1,737 @@
+/* ============================================================
+   EyewearCategories.css — Premium Editorial Horizontal Showcase
+   - Wide, landscape image-led cards (approx 340-365px tall on desktop)
+   - Edge-to-edge product photography using object-fit: cover
+   - Exact website color identity: Ivory (#FAF8F5), Bronze (#916443), Slate (#171C1C)
+   - Refined two-column header layout with balanced whitespace
+   - Fluid responsiveness: 5-card row on desktop, snap carousel on mobile
+   ============================================================ */
+
+/* ── Section Container ────────────────────────────────────── */
+.eyewear-categories-section {
+  width: 100%;
+  background: #ffffff;
+  padding: 5rem 0 4.25rem;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.eyewear-categories-container {
+  max-width: var(--max, 1440px);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  box-sizing: border-box;
+}
+
+@media (min-width: 768px) {
+  .eyewear-categories-container {
+    padding: 0 3rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .eyewear-categories-container {
+    padding: 0 4.5rem;
+  }
+}
+
+/* ── Two-Column Balanced Editorial Header ─────────────────── */
+.eyewear-cat-header {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin-bottom: 2.75rem;
+}
+
+@media (min-width: 900px) {
+  .eyewear-cat-header {
+    display: grid;
+    grid-template-columns: 1.3fr 0.85fr;
+    align-items: end;
+    gap: 3.5rem;
+    margin-bottom: 3rem;
+  }
+}
+
+.eyewear-cat-header-left {
+  max-width: 680px;
+}
+
+.eyewear-cat-eyebrow-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.65rem;
+}
+
+.eyewear-cat-eyebrow {
+  font-family: var(--font-primary, "Montserrat", sans-serif);
+  font-size: 0.72rem;
+  font-weight: var(--weight-medium, 500);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-primary, #071A15);
+  display: inline-block;
+}
+
+.eyewear-cat-eyebrow-line {
+  display: inline-block;
+  width: 32px;
+  height: 2px;
+  background: var(--color-primary, #071A15);
+  border-radius: 2px;
+}
+
+.eyewear-cat-main-title {
+  font-family: var(--font-primary, "Montserrat", sans-serif);
+  font-size: clamp(2.2rem, 3.8vw, 3.25rem);
+  font-weight: var(--weight-bold, 700);
+  color: var(--color-text-primary, #171c1c);
+  margin: 0;
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+}
+
+.eyewear-cat-main-title em {
+  font-family: var(--font-primary, "Montserrat", sans-serif);
+  font-style: italic;
+  font-weight: var(--weight-bold, 700);
+  color: var(--color-primary, #071A15);
+  margin-right: 0.2rem;
+}
+
+.eyewear-cat-header-right {
+  display: flex;
+  justify-content: flex-start;
+}
+
+@media (min-width: 900px) {
+  .eyewear-cat-header-right {
+    justify-content: flex-end;
+  }
+}
+
+.eyewear-cat-subtitle {
+  font-family: var(--font-primary, "Montserrat", sans-serif);
+  font-size: 0.95rem;
+  font-weight: var(--weight-regular, 400);
+  color: var(--color-text-secondary, #68716e);
+  line-height: 1.7;
+  margin: 0;
+  max-width: 440px;
+}
+
+/* ── Carousel / Showcase Wrapper ─────────────────────────── */
+.eyewear-cat-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+/* ── Navigation Arrows (Mobile/Tablet) ────────────────────── */
+.eyewear-cat-arrow {
+  display: none;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 1px solid var(--color-card-border, #eae5dd);
+  color: var(--color-text-primary, #171c1c);
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.09);
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  outline: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.eyewear-cat-arrow:hover:not(:disabled) {
+  background: var(--color-text-primary, #171c1c);
+  color: #ffffff;
+  border-color: var(--color-text-primary, #171c1c);
+  transform: translateY(-50%) scale(1.08);
+}
+
+.eyewear-cat-arrow:disabled {
+  opacity: 0.25;
+  cursor: not-allowed;
+}
+
+.eyewear-cat-arrow-prev {
+  left: -0.95rem;
+}
+
+.eyewear-cat-arrow-next {
+  right: -0.95rem;
+}
+
+@media (max-width: 1023px) {
+  .eyewear-cat-arrow {
+    display: flex;
+  }
+}
+
+/* ── Cards Track ──────────────────────────────────────────── */
+.eyewear-cat-track {
+  display: flex;
+  gap: 1.25rem;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x mandatory;
+  padding: 0.5rem 0.25rem 1.25rem;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.eyewear-cat-track::-webkit-scrollbar {
+  display: none;
+}
+
+/* On Desktop (1024px+): Exact 5-Card Single Row Grid */
+@media (min-width: 1024px) {
+  .eyewear-cat-track {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1.25rem;
+    overflow-x: visible;
+    padding: 0.5rem 0;
+  }
+}
+
+@media (min-width: 1280px) {
+  .eyewear-cat-track {
+    gap: 1.35rem;
+  }
+}
+
+/* ── Large Image-Led Landscape Category Card ─────────────── */
+.eyewear-cat-card {
+  flex: 0 0 76%;
+  min-width: 230px;
+  height: 320px;
+  scroll-snap-align: start;
+  text-decoration: none;
+  color: inherit;
+  background: #ffffff;
+  border: 1px solid var(--color-card-border, #eae5dd);
+  border-radius: 22px;
+  box-shadow: 0 6px 20px rgba(17, 41, 36, 0.05);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.4s ease,
+    border-color 0.4s ease;
+  user-select: none;
+  outline: none;
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .eyewear-cat-card {
+    flex: 0 0 calc(33.333% - 0.85rem);
+    height: 340px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .eyewear-cat-card {
+    flex: none;
+    min-width: 0;
+    width: 100%;
+    height: 340px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .eyewear-cat-card {
+    height: 365px;
+    border-radius: 24px;
+  }
+}
+
+/* Card Hover Elevation */
+.eyewear-cat-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 42px rgba(7, 26, 21, 0.12);
+  border-color: var(--color-primary, #071A15);
+}
+
+.eyewear-cat-card:focus-visible {
+  outline: 3px solid var(--color-accent, #D7F84F);
+  outline-offset: 3px;
+}
+
+/* ── Full-Bleed Edge-to-Edge Product Photography ─────────── */
+.eyewear-cat-card-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center bottom;
+  display: block;
+  transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.eyewear-cat-card:hover .eyewear-cat-card-img {
+  transform: scale(1.06);
+}
+
+/* ── Subtle Top Gradient for Text Legibility ──────────────── */
+.eyewear-cat-card-gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.94) 0%,
+    rgba(255, 255, 255, 0.82) 26%,
+    rgba(255, 255, 255, 0.25) 54%,
+    rgba(255, 255, 255, 0) 74%
+  );
+  pointer-events: none;
+  z-index: 1;
+  transition: opacity 0.3s ease;
+}
+
+.eyewear-cat-card:hover .eyewear-cat-card-gradient {
+  opacity: 0.96;
+}
+
+/* ── Card Header: Italic Serif + Clean Sans Title ────────── */
+.eyewear-cat-card-header {
+  padding: 1.45rem 1.4rem 0.5rem;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  position: relative;
+  z-index: 2;
+}
+
+.eyewear-cat-card-title {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* First Word: Playfair Display Luxury Italic */
+.eyewear-cat-word-italic {
+  font-family: "Playfair Display", Georgia, serif;
+  font-style: italic;
+  font-weight: var(--weight-bold, 700);
+  font-size: clamp(1.35rem, 1.6vw, 1.65rem);
+  color: var(--color-text-primary, #171c1c);
+  line-height: 1.1;
+  display: block;
+  letter-spacing: -0.015em;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+}
+
+/* Second Word: Montserrat Bold */
+.eyewear-cat-word-regular {
+  font-family: var(--font-primary, "Montserrat", sans-serif);
+  font-style: normal;
+  font-weight: var(--weight-bold, 700);
+  font-size: clamp(1.15rem, 1.35vw, 1.35rem);
+  color: var(--color-text-primary, #171c1c);
+  line-height: 1.15;
+  margin-top: 0.18rem;
+  display: block;
+  letter-spacing: -0.01em;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+}
+
+/* Circular Arrow Icon */
+.eyewear-cat-arrow-icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(234, 229, 221, 0.85);
+  color: var(--color-text-primary, #171c1c);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  opacity: 0.75;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  flex-shrink: 0;
+}
+
+.eyewear-cat-card:hover .eyewear-cat-arrow-icon {
+  background: var(--color-primary, #071A15);
+  color: var(--color-accent, #D7F84F);
+  border-color: var(--color-primary, #071A15);
+  opacity: 1;
+  transform: translate(2px, -2px) scale(1.08);
+  box-shadow: 0 4px 12px rgba(7, 26, 21, 0.3);
+}
+
+/* ── Mobile / Tablet Dots ─────────────────────────────────── */
+.eyewear-cat-dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.45rem;
+  margin-top: 1.75rem;
+}
+
+@media (min-width: 1024px) {
+  .eyewear-cat-dots {
+    display: none;
+  }
+}
+
+.eyewear-cat-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #dcd6cb;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.eyewear-cat-dot:hover:not(.active) {
+  background: var(--color-primary, #071A15);
+}
+
+.eyewear-cat-dot.active {
+  background: var(--color-primary, #071A15);
+  width: 24px;
+  border-radius: 9999px;
+}
+
+/* ── Reduced Motion Accessibility ─────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .eyewear-cat-card,
+  .eyewear-cat-card-img,
+  .eyewear-cat-arrow-icon,
+  .eyewear-cat-arrow,
+  .eyewear-cat-dot {
+    transition: none !important;
+  }
+}
+
+/* ============================================================
+   MOBILE RESPONSIVE BENTO GRID (max-width: 767px)
+   Matches reference layout from uploaded design:
+   - Row 1 & 2 Left: Smart Glasses (tall card, image top, text bottom inline)
+   - Row 1 Right: Powered Sunglasses (horizontal card, text left, image right)
+   - Row 2 Right: Contact Lenses (horizontal card, text left, image right)
+   - Row 3 Left: Computer Glasses (horizontal card, text left, image right)
+   - Row 3 Right: Reading Glasses (horizontal card, text left, image right)
+   - Decreased header typography (both title & subtitle)
+   - Pure clean white background (#ffffff)
+   ============================================================ */
+
+@media (max-width: 767px) {
+  .eyewear-categories-section {
+    background: #ffffff !important;
+    padding: 2.25rem 0 1.75rem;
+    border-bottom: 1px solid #f0f0f0;
+  }
+
+  .eyewear-categories-container {
+    padding: 0 1rem;
+  }
+
+  /* Decreased Header & Spacing */
+  .eyewear-cat-header {
+    gap: 0.4rem;
+    margin-bottom: 1.15rem;
+  }
+
+  .eyewear-cat-eyebrow-row {
+    gap: 0.4rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .eyewear-cat-eyebrow {
+    font-size: 0.62rem;
+    letter-spacing: 0.14em;
+  }
+
+  .eyewear-cat-eyebrow-line {
+    width: 20px;
+    height: 1.5px;
+  }
+
+  /* Both Texts Decreased */
+  .eyewear-cat-main-title {
+    font-size: clamp(1.4rem, 5.2vw, 1.62rem);
+    line-height: 1.22;
+    letter-spacing: -0.02em;
+  }
+
+  .eyewear-cat-main-title em {
+    font-size: inherit;
+    margin-right: 0.15rem;
+  }
+
+  .eyewear-cat-subtitle {
+    font-size: 0.8rem;
+    line-height: 1.42;
+    color: var(--color-text-secondary, #68716e);
+    max-width: 100%;
+  }
+
+  /* Hide Horizontal Carousel Navigation on Mobile */
+  .eyewear-cat-arrow {
+    display: none !important;
+  }
+
+  .eyewear-cat-dots {
+    display: none !important;
+  }
+
+  /* 2-Column Bento Grid Track */
+  .eyewear-cat-wrapper {
+    width: 100%;
+  }
+
+  .eyewear-cat-track {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto auto;
+    grid-template-areas:
+      "smart powered"
+      "smart contact"
+      "computer reading";
+    gap: 0.6rem;
+    overflow-x: visible !important;
+    padding: 0 !important;
+    scroll-snap-type: none !important;
+  }
+
+  /* Base Mobile Card */
+  .eyewear-cat-card {
+    flex: none !important;
+    min-width: 0 !important;
+    width: 100% !important;
+    border-radius: 18px;
+    border: 1px solid rgba(226, 232, 236, 0.9);
+    box-shadow: 0 4px 14px rgba(17, 41, 36, 0.04);
+    position: relative;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    box-sizing: border-box;
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+  }
+
+  .eyewear-cat-card:hover {
+    transform: none;
+    box-shadow: 0 4px 14px rgba(17, 41, 36, 0.04);
+  }
+
+  .eyewear-cat-card:active {
+    transform: scale(0.985);
+  }
+
+  /* Hide Desktop Overlay Elements on Mobile */
+  .eyewear-cat-card-gradient {
+    display: none !important;
+  }
+
+  .eyewear-cat-arrow-icon {
+    display: none !important;
+  }
+
+  /* ── 1. Smart Glasses Card (Tall / Spans 2 Rows on Left) ── */
+  .eyewear-cat-card-smart-glasses {
+    grid-area: smart;
+    background: linear-gradient(145deg, #e4f4f9 0%, #cdebf5 100%);
+    border-color: #cee5ef;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 182px;
+    height: 100%;
+    padding: 0;
+  }
+
+  .eyewear-cat-card-smart-glasses .eyewear-cat-card-img {
+    position: relative;
+    inset: auto;
+    width: 100%;
+    height: 132px;
+    object-fit: cover;
+    object-position: center 30%;
+    border-radius: 17px 17px 0 0;
+    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 72%, rgba(0, 0, 0, 0) 100%);
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 72%, rgba(0, 0, 0, 0) 100%);
+    transition: none;
+  }
+
+  .eyewear-cat-card-smart-glasses .eyewear-cat-card-header {
+    padding: 0.35rem 0.65rem 0.75rem;
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: flex-end;
+    margin-top: auto;
+  }
+
+  .eyewear-cat-card-smart-glasses .eyewear-cat-card-title {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    gap: 0.28rem;
+    margin: 0;
+  }
+
+  .eyewear-cat-card-smart-glasses .eyewear-cat-word-italic {
+    font-family: "Playfair Display", Georgia, serif;
+    font-style: italic;
+    font-weight: 700;
+    font-size: 1.08rem;
+    color: #0e1f2c;
+    line-height: 1;
+    text-shadow: none;
+    letter-spacing: -0.01em;
+  }
+
+  .eyewear-cat-card-smart-glasses .eyewear-cat-word-regular {
+    font-family: var(--font-primary, "Montserrat", sans-serif);
+    font-style: normal;
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: #172420;
+    line-height: 1;
+    margin-top: 0;
+    text-shadow: none;
+    letter-spacing: -0.01em;
+  }
+
+  /* ── 2, 3, 4, 5. Horizontal Bento Cards ── */
+  .eyewear-cat-card-powered-sunglasses,
+  .eyewear-cat-card-contact-lenses,
+  .eyewear-cat-card-computer-glasses,
+  .eyewear-cat-card-reading-glasses {
+    height: 86px;
+    min-height: 86px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0;
+  }
+
+  /* Card Color Themes matching reference */
+  .eyewear-cat-card-powered-sunglasses {
+    grid-area: powered;
+    background: linear-gradient(145deg, #fdf5ec 0%, #f6e6d4 100%);
+    border-color: #f2decb;
+  }
+
+  .eyewear-cat-card-contact-lenses {
+    grid-area: contact;
+    background: linear-gradient(145deg, #e5f6f8 0%, #d2edf5 100%);
+    border-color: #cbe7ef;
+  }
+
+  .eyewear-cat-card-computer-glasses {
+    grid-area: computer;
+    background: linear-gradient(145deg, #ecf2fa 0%, #dbe6f5 100%);
+    border-color: #d3dfef;
+  }
+
+  .eyewear-cat-card-reading-glasses {
+    grid-area: reading;
+    background: linear-gradient(145deg, #f9f6ed 0%, #ede8db 100%);
+    border-color: #e5ded0;
+  }
+
+  /* Horizontal Card Floating Image on Right */
+  .eyewear-cat-card-powered-sunglasses .eyewear-cat-card-img,
+  .eyewear-cat-card-contact-lenses .eyewear-cat-card-img,
+  .eyewear-cat-card-computer-glasses .eyewear-cat-card-img,
+  .eyewear-cat-card-reading-glasses .eyewear-cat-card-img {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    left: auto;
+    width: 50%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 0 17px 17px 0;
+    mask-image: linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 30%);
+    -webkit-mask-image: linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 30%);
+    transition: none;
+  }
+
+  .eyewear-cat-card-computer-glasses .eyewear-cat-card-img {
+    object-position: 25% 75%;
+  }
+
+  /* Horizontal Card Text Block on Left */
+  .eyewear-cat-card-powered-sunglasses .eyewear-cat-card-header,
+  .eyewear-cat-card-contact-lenses .eyewear-cat-card-header,
+  .eyewear-cat-card-computer-glasses .eyewear-cat-card-header,
+  .eyewear-cat-card-reading-glasses .eyewear-cat-card-header {
+    padding: 0.55rem 0.35rem 0.55rem 0.75rem;
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    max-width: 54%;
+    box-sizing: border-box;
+  }
+
+  .eyewear-cat-card-powered-sunglasses .eyewear-cat-card-title,
+  .eyewear-cat-card-contact-lenses .eyewear-cat-card-title,
+  .eyewear-cat-card-computer-glasses .eyewear-cat-card-title,
+  .eyewear-cat-card-reading-glasses .eyewear-cat-card-title {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 0;
+  }
+
+  .eyewear-cat-card-powered-sunglasses .eyewear-cat-word-italic,
+  .eyewear-cat-card-contact-lenses .eyewear-cat-word-italic,
+  .eyewear-cat-card-computer-glasses .eyewear-cat-word-italic,
+  .eyewear-cat-card-reading-glasses .eyewear-cat-word-italic {
+    font-family: "Playfair Display", Georgia, serif;
+    font-style: italic;
+    font-weight: 700;
+    font-size: clamp(0.85rem, 2.7vw, 0.98rem);
+    line-height: 1.15;
+    color: #0e1f2c;
+    letter-spacing: -0.01em;
+    text-shadow: none;
+  }
+
+  .eyewear-cat-card-powered-sunglasses .eyewear-cat-word-regular,
+  .eyewear-cat-card-contact-lenses .eyewear-cat-word-regular,
+  .eyewear-cat-card-computer-glasses .eyewear-cat-word-regular,
+  .eyewear-cat-card-reading-glasses .eyewear-cat-word-regular {
+    font-family: var(--font-primary, "Montserrat", sans-serif);
+    font-style: normal;
+    font-weight: 700;
+    font-size: clamp(0.72rem, 2.3vw, 0.82rem);
+    line-height: 1.2;
+    color: #172420;
+    letter-spacing: -0.01em;
+    margin-top: 0.12rem;
+    text-shadow: none;
+  }
+}

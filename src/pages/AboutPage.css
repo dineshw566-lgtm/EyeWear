@@ -1,0 +1,709 @@
+/* ============================================================
+   ABOUT PAGE — ViZHən Plus Optics
+   ============================================================ */
+
+/* ── Shared typography helpers used site-wide ── */
+.about-page .eyebrow {
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-text-dim);
+  margin-bottom: 0.75rem;
+}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.about-hero {
+  position: relative;
+  width: 100%;
+  height: min(90vh, 700px);
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+}
+
+.about-hero > img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+.about-hero__overlay {
+  position: relative;
+  z-index: 2;
+  padding: 3rem clamp(1.5rem, 5vw, 7rem) 4rem;
+  background: linear-gradient(to top, rgba(7, 26, 21, 0.92) 0%, transparent 100%);
+  width: 100%;
+}
+
+.about-hero__overlay .eyebrow {
+  color: var(--color-accent);
+}
+
+.about-hero__overlay h1 {
+  font-family: "Cinzel", serif;
+  font-size: clamp(2.2rem, 6vw, 5rem);
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.1;
+  margin: 0 0 1.25rem;
+}
+
+.about-hero__sub {
+  font-family: "Montserrat", sans-serif;
+  font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+  color: var(--color-text-muted);
+  max-width: 520px;
+  line-height: 1.65;
+}
+
+/* ============================================================
+   MANIFESTO
+   ============================================================ */
+.about-manifesto {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 3rem 5rem;
+  align-items: start;
+  padding: 6rem clamp(1.5rem, 10vw, 10rem);
+  border-bottom: 1px solid var(--color-border-light);
+}
+
+.about-manifesto__badge img {
+  width: 120px;
+  opacity: 0.9;
+}
+
+.about-manifesto__text h2 {
+  font-family: "Cinzel", serif;
+  font-size: clamp(1.4rem, 2.5vw, 2.2rem);
+  font-weight: 600;
+  color: var(--color-text-dark);
+  line-height: 1.4;
+  margin: 0.5rem 0 1.5rem;
+}
+
+.about-manifesto__text p {
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.98rem;
+  color: var(--color-text-dark-muted);
+  line-height: 1.8;
+  max-width: 620px;
+}
+
+/* ============================================================
+   EDITORIAL SPLIT
+   ============================================================ */
+.about-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 540px;
+}
+
+.about-split__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.about-split__copy {
+  padding: 5rem clamp(2rem, 6vw, 6rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.1rem;
+  background: var(--color-surface-muted);
+}
+
+.about-split__copy h2 {
+  font-family: "Cinzel", serif;
+  font-size: clamp(1.4rem, 2.5vw, 2.2rem);
+  font-weight: 600;
+  color: var(--color-text-dark);
+  line-height: 1.3;
+  margin-bottom: 0.25rem;
+}
+
+.about-split__copy p {
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.95rem;
+  color: var(--color-text-dark-muted);
+  line-height: 1.8;
+}
+
+.about-split__stats {
+  display: flex;
+  gap: 2.5rem;
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--color-border-light);
+}
+
+.about-split__stats > div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.about-split__stats strong {
+  font-family: "Cinzel", serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #0d9488;
+}
+
+.about-split__stats span {
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-text-dark-muted);
+}
+
+/* ============================================================
+   VALUES
+   ============================================================ */
+.about-values {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid var(--color-border-light);
+}
+
+.about-values__card {
+  padding: 3.5rem clamp(1.5rem, 4vw, 3.5rem);
+  border-right: 1px solid var(--color-border-light);
+}
+.about-values__card:last-child { border-right: none; }
+
+.about-values__num {
+  font-family: "Cinzel", serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-border-light);
+  display: block;
+  margin-bottom: 1.25rem;
+}
+
+.about-values__card h3 {
+  font-family: "Cinzel", serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--color-text-dark);
+  margin-bottom: 0.75rem;
+}
+
+.about-values__card p {
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.9rem;
+  color: var(--color-text-dark-muted);
+  line-height: 1.75;
+}
+
+/* ============================================================
+   SERVICES
+   ============================================================ */
+.about-services {
+  background: var(--color-primary);
+  color: #fff;
+  padding: 6rem clamp(1.5rem, 8vw, 8rem);
+}
+
+.about-services__header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.about-services__header .eyebrow {
+  color: var(--color-accent);
+}
+
+.about-services__header h2 {
+  font-family: "Cinzel", serif;
+  font-size: clamp(1.6rem, 3vw, 2.6rem);
+  font-weight: 600;
+  color: #fff;
+  line-height: 1.3;
+}
+
+.about-services__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.about-services__item {
+  padding: 2rem;
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 8px;
+  background: rgba(255,255,255,0.04);
+  transition: background 0.2s;
+}
+.about-services__item:hover {
+  background: rgba(255,255,255,0.07);
+}
+
+.about-services__icon {
+  font-size: 1.8rem;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.about-services__item h3 {
+  font-family: "Cinzel", serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 0.6rem;
+}
+
+.about-services__item p {
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.87rem;
+  color: var(--color-text-muted);
+  line-height: 1.7;
+}
+
+/* ============================================================
+   LENS PARTNERS
+   ============================================================ */
+.about-lens {
+  padding: 6rem clamp(1.5rem, 8vw, 8rem);
+  background: var(--color-surface-muted);
+  border-bottom: 1px solid var(--color-border-light);
+}
+
+.about-lens__header {
+  max-width: 600px;
+  margin: 0 0 3rem;
+}
+
+.about-lens__header h2 {
+  font-family: "Cinzel", serif;
+  font-size: clamp(1.5rem, 2.5vw, 2.2rem);
+  font-weight: 700;
+  color: var(--color-text-dark);
+  margin: 0.4rem 0 1rem;
+}
+
+.about-lens__header p {
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.95rem;
+  color: var(--color-text-dark-muted);
+  line-height: 1.75;
+}
+
+.about-lens__grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1rem;
+}
+
+.about-lens__card {
+  background: #fff;
+  border: 1px solid var(--color-border-light);
+  border-radius: 8px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.about-lens__card strong {
+  font-family: "Cinzel", serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-text-dark);
+}
+
+.about-lens__origin {
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #0d9488;
+}
+
+.about-lens__card p {
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.8rem;
+  color: var(--color-text-dark-muted);
+  line-height: 1.5;
+  margin-top: 0.25rem;
+}
+
+/* ============================================================
+   BRAND LOGOS
+   ============================================================ */
+.about-brands {
+  background: var(--color-secondary);
+  padding: 5rem clamp(1.5rem, 8vw, 8rem);
+}
+
+.about-brands__header {
+  text-align: center;
+  max-width: 540px;
+  margin: 0 auto 3.5rem;
+}
+
+.about-brands__header .eyebrow {
+  color: var(--color-text-muted);
+}
+
+.about-brands__header h2 {
+  font-family: "Cinzel", serif;
+  font-size: clamp(1.4rem, 2.5vw, 2.2rem);
+  font-weight: 700;
+  color: #fff;
+  margin: 0.4rem 0 1rem;
+}
+
+.about-brands__header p {
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  line-height: 1.65;
+}
+
+.about-brands__logos {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 1rem;
+  align-items: center;
+}
+
+.about-brands__logo-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  border-radius: 6px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+  transition: background 0.2s;
+}
+.about-brands__logo-wrap:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+.about-brands__logo-wrap img {
+  max-width: 80px;
+  max-height: 32px;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+  opacity: 0.75;
+  transition: opacity 0.2s;
+}
+.about-brands__logo-wrap:hover img {
+  opacity: 1;
+}
+
+/* ============================================================
+   QUOTE
+   ============================================================ */
+.about-quote {
+  padding: 6rem clamp(1.5rem, 8vw, 8rem);
+  text-align: center;
+  background: var(--color-primary);
+}
+
+.about-quote blockquote {
+  font-family: "Cinzel", serif;
+  font-size: clamp(1.3rem, 3vw, 2.4rem);
+  font-weight: 400;
+  font-style: italic;
+  color: #fff;
+  line-height: 1.5;
+  max-width: 750px;
+  margin: 0 auto 1.5rem;
+}
+
+.about-quote cite {
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+/* ============================================================
+   CONTACT / VISIT
+   ============================================================ */
+.about-contact {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 560px;
+}
+
+.about-contact__info {
+  padding: 5rem clamp(2rem, 6vw, 6rem);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  background: #fff;
+}
+
+.about-contact__info h2 {
+  font-family: "Cinzel", serif;
+  font-size: clamp(1.4rem, 2.5vw, 2.1rem);
+  font-weight: 700;
+  color: var(--color-text-dark);
+  margin: 0.4rem 0;
+}
+
+.about-contact__detail {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.about-contact__label {
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-text-dim);
+}
+
+.about-contact__detail p {
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.93rem;
+  color: var(--color-text-dark-muted);
+  line-height: 1.6;
+}
+
+.about-contact__detail a {
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.93rem;
+  color: var(--color-text-dark);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s;
+}
+.about-contact__detail a:hover { color: #0d9488; }
+
+.about-contact__map-link {
+  font-size: 0.82rem !important;
+  color: #0d9488 !important;
+  font-weight: 600 !important;
+  text-decoration: none;
+  margin-top: 0.25rem;
+}
+.about-contact__map-link:hover { text-decoration: underline; }
+
+/* Social buttons */
+.about-contact__social {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+.about-contact__social-links {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.about-social-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: opacity 0.2s, transform 0.15s;
+}
+.about-social-btn:hover { opacity: 0.88; transform: translateY(-1px); }
+
+.about-social-btn--ig {
+  background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+  color: #fff;
+}
+.about-social-btn--fb { background: #1877F2; color: #fff; }
+.about-social-btn--wa { background: #25D366; color: #fff; }
+
+/* Map embed */
+.about-contact__map {
+  position: relative;
+  min-height: 420px;
+}
+
+.about-contact__map iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* ============================================================
+   CTA STRIP
+   ============================================================ */
+.about-cta {
+  background: var(--color-accent);
+  padding: 5rem clamp(1.5rem, 8vw, 8rem);
+}
+
+.about-cta__inner {
+  max-width: 680px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.about-cta h2 {
+  font-family: "Cinzel", serif;
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: 1rem;
+}
+
+.about-cta p {
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.97rem;
+  color: rgba(7,26,21,0.75);
+  line-height: 1.75;
+  margin-bottom: 2rem;
+}
+
+.about-cta__actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.about-cta__btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.875rem 2rem;
+  border-radius: 6px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.87rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+.about-cta__btn--primary {
+  background: var(--color-primary);
+  color: var(--color-accent);
+}
+.about-cta__btn--primary:hover {
+  background: var(--color-secondary);
+}
+
+.about-cta__btn--ghost {
+  background: transparent;
+  color: var(--color-primary);
+  border: 2px solid var(--color-primary);
+}
+.about-cta__btn--ghost:hover {
+  background: rgba(7,26,21,0.08);
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 1100px) {
+  .about-brands__logos {
+    grid-template-columns: repeat(6, 1fr);
+  }
+  .about-lens__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .about-manifesto {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 4rem 2rem;
+  }
+
+  .about-split {
+    grid-template-columns: 1fr;
+  }
+  .about-split__image {
+    height: 380px;
+  }
+
+  .about-values {
+    grid-template-columns: 1fr;
+  }
+  .about-values__card {
+    border-right: none;
+    border-bottom: 1px solid var(--color-border-light);
+  }
+
+  .about-services__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .about-lens__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .about-brands__logos {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .about-contact {
+    grid-template-columns: 1fr;
+  }
+  .about-contact__map {
+    height: 360px;
+    min-height: unset;
+  }
+}
+
+@media (max-width: 600px) {
+  .about-hero {
+    height: min(80vh, 540px);
+  }
+
+  .about-split__stats {
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+
+  .about-services__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-lens__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .about-brands__logos {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .about-contact__social-links {
+    flex-direction: column;
+  }
+
+  .about-cta__actions {
+    flex-direction: column;
+  }
+  .about-cta__btn {
+    justify-content: center;
+  }
+}
+

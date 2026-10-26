@@ -1,0 +1,367 @@
+/* Virtual Try-On — live face scan + recommendation panel */
+
+.tryon-hero {
+  padding-bottom: 3rem;
+  text-align: center;
+}
+
+.tryon-hero p:not(.eyebrow) {
+  max-width: 40rem;
+  margin: 0 auto;
+  color: var(--muted);
+}
+
+.tryon-layout {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 2.5rem;
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 4.5rem 5rem;
+  align-items: start;
+}
+
+.tryon-camera-wrap {
+  position: sticky;
+  top: 7rem;
+}
+
+.tryon-camera-stage.camera-stage {
+  height: min(70vh, 42rem);
+  border-radius: 4px;
+}
+
+.tryon-camera-stage video,
+.tryon-camera-stage canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scaleX(-1);
+}
+
+.tryon-camera-stage canvas {
+  pointer-events: none;
+}
+
+.tryon-face-guide {
+  position: absolute;
+  left: 50%;
+  top: 46%;
+  width: min(46%, 20rem);
+  aspect-ratio: 3 / 4;
+  transform: translate(-50%, -50%);
+  border: 2px dashed rgba(255, 255, 255, 0.55);
+  border-radius: 50% 50% 46% 46%;
+  animation: tryonPulse 1.8s ease-in-out infinite;
+}
+
+@keyframes tryonPulse {
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 0.95;
+  }
+}
+
+.tryon-status-banner {
+  position: absolute;
+  left: 1rem;
+  top: 1rem;
+  padding: 0.5rem 0.75rem;
+  background: rgba(0, 0, 0, 0.6);
+  color: var(--white);
+  font-size: 0.65rem;
+  letter-spacing: 0.02em;
+  display: flex;
+  align-items: center;
+  max-width: calc(100% - 2rem);
+}
+
+.tryon-progress-track {
+  position: absolute;
+  left: 1rem;
+  right: 1rem;
+  bottom: 1rem;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.25);
+  overflow: hidden;
+}
+
+.tryon-progress-fill {
+  height: 100%;
+  background: var(--accent);
+  transition: width 0.12s linear;
+}
+
+.tryon-camera-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 1rem;
+}
+
+.tryon-camera-controls .button {
+  flex: 1 1 auto;
+  min-width: 9rem;
+}
+
+.tryon-intro.try-content {
+  min-height: min(70vh, 42rem);
+}
+
+.tryon-manual-shape {
+  margin-top: 1.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--border);
+  width: 100%;
+}
+
+.tryon-manual-shape p {
+  margin-bottom: 0.75rem;
+  font-size: 0.72rem;
+  color: var(--muted);
+}
+
+.tryon-manual-shape-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.tryon-manual-shape-options .button {
+  min-height: 2.4rem;
+  padding: 0.5rem 0.9rem;
+}
+
+/* Recommendation panel */
+
+.tryon-recommend-panel {
+  padding-top: 0.5rem;
+}
+
+.tryon-recommend-empty {
+  padding: 3rem 1.5rem;
+  text-align: center;
+  background: var(--surface-soft);
+}
+
+.tryon-recommend-empty h3 {
+  font-size: 1.6rem;
+  margin: 0.5rem 0 1rem;
+}
+
+.tryon-recommend-empty p:not(.eyebrow) {
+  color: var(--muted);
+  max-width: 26rem;
+  margin: 0 auto;
+}
+
+.tryon-shape-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.85rem;
+  background: var(--surface-soft);
+  font-family: var(--font-primary);
+  font-weight: var(--weight-medium);
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.tryon-shape-badge svg {
+  width: 1rem;
+  color: var(--primary);
+}
+
+.tryon-shape-tip {
+  margin: 0.75rem 0 1.5rem;
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+.tryon-recommend-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.tryon-recommend-heading h3 {
+  font-size: 1.6rem;
+  margin: 0;
+}
+
+.tryon-recommend-nav {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.tryon-recommend-nav .icon-button {
+  width: 2.2rem;
+  height: 2.2rem;
+  background: var(--surface-soft);
+}
+
+.tryon-recommend-nav .icon-button svg {
+  width: 1rem;
+}
+
+.tryon-recommend-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  max-height: 60vh;
+  overflow-y: auto;
+  padding-right: 0.25rem;
+}
+
+.tryon-rec-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  transition:
+    border-color 0.18s ease,
+    transform 0.18s ease;
+}
+
+.tryon-rec-card.active {
+  border-color: var(--primary);
+}
+
+.tryon-rec-card:hover {
+  transform: translateY(-2px);
+}
+
+.tryon-rec-image {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  padding: 0;
+  border: 0;
+  background: var(--surface-soft);
+  cursor: pointer;
+}
+
+.tryon-rec-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.tryon-rec-body {
+  padding: 0.75rem;
+}
+
+.tryon-rec-body h4 {
+  margin: 0 0 0.2rem;
+  font-family: var(--font-primary);
+  font-weight: var(--weight-semibold);
+  font-size: 0.85rem;
+}
+
+.tryon-rec-meta {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.62rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.tryon-rec-price {
+  margin: 0.35rem 0;
+  font-family: var(--font-primary);
+  font-weight: var(--weight-bold);
+  font-size: 0.8rem;
+}
+
+.tryon-rec-swatches {
+  display: flex;
+  gap: 0.3rem;
+  margin-bottom: 0.6rem;
+}
+
+.tryon-rec-swatch {
+  width: 0.9rem;
+  height: 0.9rem;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.tryon-rec-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.tryon-rec-try {
+  flex: 1;
+  min-height: 2.4rem;
+  padding: 0.5rem 0.6rem;
+  font-size: 0.6rem;
+}
+
+.tryon-rec-actions .icon-button {
+  width: 2.4rem;
+  height: 2.4rem;
+  background: var(--surface-soft);
+  flex-shrink: 0;
+}
+
+.tryon-rec-actions .icon-button svg {
+  width: 1rem;
+}
+
+.tryon-footer-cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 3rem 1.5rem 5rem;
+  text-align: center;
+  border-top: 1px solid var(--border);
+}
+
+.tryon-footer-cta p {
+  margin: 0;
+  color: var(--muted);
+}
+
+@media (max-width: 1300px) {
+  .tryon-layout {
+    padding: 0 2.5rem 4rem;
+  }
+}
+
+@media (max-width: 1100px) {
+  .tryon-layout {
+    grid-template-columns: 1fr;
+  }
+  .tryon-camera-wrap {
+    position: static;
+  }
+  .tryon-recommend-grid {
+    max-height: none;
+    overflow: visible;
+  }
+}
+
+@media (max-width: 640px) {
+  .tryon-layout {
+    padding: 0 1.25rem 3rem;
+    gap: 2rem;
+  }
+  .tryon-camera-stage.camera-stage {
+    height: 60vh;
+  }
+  .tryon-camera-controls .button {
+    min-width: 100%;
+  }
+}
